@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import del from './delete.png';
 import chats from './chats.png';
 import send from './send.png';
+import StarRating from "./StarRating";
 
 function Profile() {
     const [loggedInUser, setLoggedInUser] = useState('');
@@ -21,6 +22,7 @@ function Profile() {
     const [email, setEmail] = useState('');
     const [comm, setComm] = useState(false);
     const [comment, setComment] = useState({ data: '' })
+    const [total, setTotal] = useState(0);
     const [passInfo, setPassInfo] = useState({
         email: '',
         oldpass: '',
@@ -240,6 +242,37 @@ function Profile() {
         }
     }
 
+    const handleRatingChange = (newRating) => {
+        submitRating(newRating);
+    };
+
+    const submitRating = async (r) => {
+        try {
+            const url = "https://map-my-story-server.vercel.app/auth/rateus";
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: user.username, rating: r })
+            });
+
+            const result = await response.json();
+            const { success, message, rate, error } = result;
+            if (success) {
+                console.log(message);
+                setTotal(rate)
+            } else if (error) {
+                const details = error?.details[0].message;
+                handelError(details);
+            } else if (!success) {
+                handelError(message);
+            }
+        } catch (err) {
+            handelError(err);
+        }
+    }
+
     useEffect(() => {
         fetchStories();
     }, [, loggedInUser, helper]);
@@ -258,7 +291,10 @@ function Profile() {
                         <li><a onClick={() => setLogoutPopup(true)}>Logout</a></li>
                     </ul>
                 </nav>
-                <input type="text" placeholder="Search..." />
+                {/* <input type="text" placeholder="Search..." /> */}
+                <span> <p>{total}</p>
+                    <StarRating onRatingChange={submitRating} className='rateing' />
+                </span>
             </header>
 
             {/* Profile Section */}

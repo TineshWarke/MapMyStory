@@ -217,10 +217,6 @@ function Home() {
         );
     };
 
-    const handleRatingChange = (newRating) => {
-        submitRating(newRating);
-    };
-
     const getUser = async () => {
         try {
             const url = "https://map-my-story-server.vercel.app/auth/getuser";
@@ -294,7 +290,7 @@ function Home() {
                 </nav>
                 {/* <input type="text" placeholder="Search..." /> */}
                 <span> <p>{total}</p>
-                    <StarRating onRatingChange={handleRatingChange} className='rateing' />
+                    <StarRating onRatingChange={submitRating} className='rateing' />
                 </span>
             </header>
 

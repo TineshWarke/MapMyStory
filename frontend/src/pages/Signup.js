@@ -24,7 +24,7 @@ function Signup() {
             return handelError('name, email and password are required');
         }
         try {
-            const url = "map-my-story-server.vercel.app/auth/signup";
+            const url = "auth/signup";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

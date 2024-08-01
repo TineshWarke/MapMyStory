@@ -61,7 +61,7 @@ function Home() {
 
     const fetchStories = async () => {
         try {
-            const url = "http://localhost:8080/story/getstories";
+            const url = "map-my-story-server.vercel.app/story/getstories";
             const copyPage = { ...page };
             copyPage['pageno'] = activeIndex;
             setPage(copyPage);
@@ -91,7 +91,7 @@ function Home() {
 
     const updateLike = async () => {
         try {
-            const url = "http://localhost:8080/story/like";
+            const url = "map-my-story-server.vercel.app/story/like";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -122,7 +122,7 @@ function Home() {
 
     const addComment = async () => {
         try {
-            const url = "http://localhost:8080/story/addcomment";
+            const url = "map-my-story-server.vercel.app/story/addcomment";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -155,7 +155,7 @@ function Home() {
 
     const getAboutUs = async () => {
         try {
-            const url = "http://localhost:8080/story/getaboutus";
+            const url = "map-my-story-server.vercel.app/story/getaboutus";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -223,7 +223,7 @@ function Home() {
 
     const getUser = async () => {
         try {
-            const url = "http://localhost:8080/auth/getuser";
+            const url = "map-my-story-server.vercel.app/auth/getuser";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -249,7 +249,7 @@ function Home() {
 
     const submitRating = async (r) => {
         try {
-            const url = "http://localhost:8080/auth/rateus";
+            const url = "map-my-story-server.vercel.app/auth/rateus";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

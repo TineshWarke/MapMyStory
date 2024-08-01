@@ -61,7 +61,7 @@ function Profile() {
 
     const getUser = async () => {
         try {
-            const url = "http://localhost:8080/auth/getuser";
+            const url = "map-my-story-server.vercel.app/auth/getuser";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -88,7 +88,7 @@ function Profile() {
     const deleteStory = async () => {
         setShowPopup(false);
         try {
-            const url = "http://localhost:8080/story/deletemystory";
+            const url = "map-my-story-server.vercel.app/story/deletemystory";
             delStory.id = story._id;
             const response = await fetch(url, {
                 method: 'POST',
@@ -124,7 +124,7 @@ function Profile() {
         }
         passInfo.email = email;
         try {
-            const url = "http://localhost:8080/auth/changepass";
+            const url = "map-my-story-server.vercel.app/auth/changepass";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -151,7 +151,7 @@ function Profile() {
 
     const updateLike = async () => {
         try {
-            const url = "http://localhost:8080/story/like";
+            const url = "map-my-story-server.vercel.app/story/like";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -182,7 +182,7 @@ function Profile() {
 
     const fetchStories = async () => {
         try {
-            const url = "http://localhost:8080/story/getstoriesbyuser";
+            const url = "map-my-story-server.vercel.app/story/getstoriesbyuser";
             user.username = loggedInUser;
             const response = await fetch(url, {
                 method: 'POST',
@@ -209,7 +209,7 @@ function Profile() {
 
     const addComment = async () => {
         try {
-            const url = "http://localhost:8080/story/addcomment";
+            const url = "map-my-story-server.vercel.app/story/addcomment";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

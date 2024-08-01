@@ -17,6 +17,11 @@ app.use(bodyParser.json());
 app.use(cors({
     origin: "https://map-my-story.vercel.app"
 }));
+
+app.use(cors());
+
+app.options('*', cors());
+
 app.use('/auth', AuthRouter);
 app.use('/story', StoryRouter);
 

@@ -34,7 +34,7 @@ const StorySchema = new Schema({
     },
     comments: [{
         username: { type: String, default: 'Tinesh Warke' },
-        content: { type: String, default: 'Thank you for sharing your story!' },
+        comment: { type: String, default: 'Thank you for sharing your story!' },
         date: { type: Date, default: Date.now }
     }],
     createdAt: {

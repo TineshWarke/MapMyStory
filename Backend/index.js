@@ -14,11 +14,7 @@ app.get('/ping', (req, res) => {
 })
 
 app.use(bodyParser.json());
-app.use(cors({
-    methods: ['GET', 'POST'],
-    origin: "https://map-my-story.vercel.app"
-}));
-
+app.use(cors());
 app.use('/auth', AuthRouter);
 app.use('/story', StoryRouter);
 

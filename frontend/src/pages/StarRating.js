@@ -12,7 +12,7 @@ const StarRating = ({ onRatingChange }) => {
 
   const getUser = async () => {
     try {
-      const url = "map-my-story-server.vercel.app/auth/getuser";
+      const url = "https://map-my-story-server.vercel.app/auth/getuser";
       const response = await fetch(url, {
         method: 'POST',
         headers: {

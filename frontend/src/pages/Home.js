@@ -61,7 +61,7 @@ function Home() {
 
     const fetchStories = async () => {
         try {
-            const url = "map-my-story-server.vercel.app/story/getstories";
+            const url = "https://map-my-story-server.vercel.app/story/getstories";
             const copyPage = { ...page };
             copyPage['pageno'] = activeIndex;
             setPage(copyPage);
@@ -91,7 +91,7 @@ function Home() {
 
     const updateLike = async () => {
         try {
-            const url = "map-my-story-server.vercel.app/story/like";
+            const url = "https://map-my-story-server.vercel.app/story/like";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -122,7 +122,7 @@ function Home() {
 
     const addComment = async () => {
         try {
-            const url = "map-my-story-server.vercel.app/story/addcomment";
+            const url = "https://map-my-story-server.vercel.app/story/addcomment";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -155,7 +155,7 @@ function Home() {
 
     const getAboutUs = async () => {
         try {
-            const url = "map-my-story-server.vercel.app/story/getaboutus";
+            const url = "https://map-my-story-server.vercel.app/story/getaboutus";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -223,7 +223,7 @@ function Home() {
 
     const getUser = async () => {
         try {
-            const url = "map-my-story-server.vercel.app/auth/getuser";
+            const url = "https://map-my-story-server.vercel.app/auth/getuser";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -249,7 +249,7 @@ function Home() {
 
     const submitRating = async (r) => {
         try {
-            const url = "map-my-story-server.vercel.app/auth/rateus";
+            const url = "https://map-my-story-server.vercel.app/auth/rateus";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

@@ -96,7 +96,7 @@ function SubmitStory() {
         storyInfo.anonymous = isAnonymous;
         storyInfo.username = loggedInUser
         try {
-            const url = "map-my-story-server.vercel.app/story/savemystory";
+            const url = "https://map-my-story-server.vercel.app/story/savemystory";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

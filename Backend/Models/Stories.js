@@ -32,9 +32,11 @@ const StorySchema = new Schema({
     likeby: {
         type: Array
     },
-    comments: {
-        type: Array
-    },
+    comments: [{
+        username: { type: String, default: 'Tinesh Warke' },
+        content: { type: String, default: 'Thank you for sharing your story!' },
+        date: { type: Date, default: Date.now }
+    }],
     createdAt: {
         type: Date,
         default: Date.now,

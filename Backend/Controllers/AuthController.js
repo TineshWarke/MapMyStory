@@ -145,13 +145,18 @@ const changePaaword = async (req, res) => {
 const rateus = async (req, res) => {
     try {
         const { username, rating } = req.body;
-        await UserModel.updateOne({ name: username }, {$set: {rating: rating}});
+        await UserModel.updateOne({ name: username }, { $set: { rating: rating } });
         const result = await UserModel.aggregate([{
-            $group:{
-                _id: null,
-                total: {$avg: '$rating'}
-            }
-        }]);
+                $match: {
+                    rating: { $ne: 0 }
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    total: { $avg: '$rating' }
+                }
+            }]);
 
         return res.status(200)
             .json({

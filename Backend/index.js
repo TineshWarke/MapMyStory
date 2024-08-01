@@ -15,8 +15,8 @@ app.get('/ping', (req, res) => {
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/auth', AuthRouter);
-app.use('/story', StoryRouter);
+app.use('https://map-my-story-server.vercel.app/auth', AuthRouter);
+app.use('https://map-my-story-server.vercel.app/story', StoryRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on PORT : ${PORT}`);

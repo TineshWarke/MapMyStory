@@ -72,7 +72,7 @@ function Profile() {
                 body: JSON.stringify(user)
             });
             const result = await response.json();
-            const { success, message, email, error } = result;
+            const { success, message, email, rating, error } = result;
             if (success) {
                 console.log(message);
                 setEmail(email);

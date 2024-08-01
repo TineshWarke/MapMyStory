@@ -75,7 +75,8 @@ function Profile() {
             const { success, message, email, error } = result;
             if (success) {
                 console.log(message);
-                setEmail(email)
+                setEmail(email);
+                submitRating(rating);
             } else if (error) {
                 const details = error?.details[0].message;
                 handelError(details);
@@ -241,10 +242,6 @@ function Profile() {
             handelError(err);
         }
     }
-
-    const handleRatingChange = (newRating) => {
-        submitRating(newRating);
-    };
 
     const submitRating = async (r) => {
         try {

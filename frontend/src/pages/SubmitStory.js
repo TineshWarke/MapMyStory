@@ -161,9 +161,36 @@ function SubmitStory() {
         }
     }
 
+    const getUser = async () => {
+        try {
+            const url = "https://map-my-story-server.vercel.app/auth/getuser";
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+            const result = await response.json();
+            const { success, message, rating, error } = result;
+            if (success) {
+                console.log(message);
+                submitRating(rating);
+            } else if (error) {
+                const details = error?.details[0].message;
+                handelError(details);
+            } else if (!success) {
+                handelError(message);
+            }
+        } catch (err) {
+            handelError(err);
+        }
+    };
+
     useEffect(() => {
         setLoggedInUser(localStorage.getItem('loggedInUser'));
         user.username = localStorage.getItem('loggedInUser');
+        getUser();
     }, []);
 
     return (

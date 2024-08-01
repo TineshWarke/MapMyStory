@@ -14,9 +14,9 @@ app.get('/ping', (req, res) => {
 })
 
 app.use(bodyParser.json());
-app.use(cors({
-    origin: "https://map-my-story.vercel.app"
-}));
+// app.use(cors({
+//     origin: "https://map-my-story.vercel.app"
+// }));
 
 app.use(cors());
 

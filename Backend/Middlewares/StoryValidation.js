@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const addStoryValidation = (req, res, next) => {
     const schema = Joi.object({
-        title: Joi.string().min(3).max(50).required(),
+        title: Joi.string().min(3).max(55).required(),
         category: Joi.string().required(),
         story: Joi.string().min(20).required(),
         location: Joi.array(),

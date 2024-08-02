@@ -151,13 +151,14 @@ header span p{
     width: 300px;
     height: 100px;
     background: #fff;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     border: 2px solid black;
     overflow: hidden;
     cursor: pointer;
+    text-align: justify;
 }
 
 .story-card:hover {

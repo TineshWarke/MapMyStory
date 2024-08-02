@@ -27,7 +27,7 @@ const getStories = async (req, res) => {
     try {
         const stories = await StoryModel.find().sort({ _id: -1 }).skip((req.body.pageno - 1) * 16).limit(16);
         const allStories = await StoryModel.find();
-        toatl = UserModel.count_documents({});
+        const total = StoryModel.countDocuments();
 
         return res.status(200)
             .json({

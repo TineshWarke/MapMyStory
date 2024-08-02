@@ -79,7 +79,7 @@ const getUser = async (req, res) => {
     try {
         const { username } = req.body;
         const user = await UserModel.findOne({ name: username });
-        const total = UserModel.countDocuments();
+        const total = UserModel.find().count();
 
         return res.status(200)
             .json({

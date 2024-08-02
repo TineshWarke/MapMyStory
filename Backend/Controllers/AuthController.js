@@ -79,7 +79,7 @@ const getUser = async (req, res) => {
     try {
         const { username } = req.body;
         const user = await UserModel.findOne({ name: username });
-        const total = UserModel.count();
+        const total = await UserModel.countDocuments();
 
         return res.status(200)
             .json({
@@ -149,16 +149,16 @@ const rateus = async (req, res) => {
         const { username, rating } = req.body;
         await UserModel.updateOne({ name: username }, { $set: { rating: rating } });
         const result = await UserModel.aggregate([{
-                $match: {
-                    rating: { $ne: 0 }
-                }
-            },
-            {
-                $group: {
-                    _id: null,
-                    total: { $avg: '$rating' }
-                }
-            }]);
+            $match: {
+                rating: { $ne: 0 }
+            }
+        },
+        {
+            $group: {
+                _id: null,
+                total: { $avg: '$rating' }
+            }
+        }]);
 
         return res.status(200)
             .json({

@@ -29,6 +29,8 @@ function Home() {
     const url = window.location.href;
     const [comment, setComment] = useState({ data: '' })
     const [total, setTotal] = useState(0);
+    const [userCount, setUserCount] = useState(0);
+    const [storyCount, setStoryCount] = useState(0);
     const [page, setPage] = useState({
         pageno: ''
     });
@@ -73,11 +75,12 @@ function Home() {
                 body: JSON.stringify(copyPage)
             });
             const result = await response.json();
-            const { success, message, stories, allStories, error } = result;
+            const { success, message, stories, allStories, count, error } = result;
             setStories(stories);
             setAllStories(allStories);
             if (success) {
                 console.log(message);
+                setStoryCount(count);
             } else if (error) {
                 const details = error?.details[0].message;
                 handelError(details);
@@ -228,10 +231,11 @@ function Home() {
                 body: JSON.stringify(user)
             });
             const result = await response.json();
-            const { success, message, rating, error } = result;
+            const { success, message, rating, count, error } = result;
             if (success) {
                 console.log(message);
                 submitRating(rating);
+                setUserCount(count);
             } else if (error) {
                 const details = error?.details[0].message;
                 handelError(details);
@@ -258,7 +262,7 @@ function Home() {
             const { success, message, rate, error } = result;
             if (success) {
                 console.log(message);
-                setTotal(rate)
+                setTotal(rate != null ? rate : 0);
             } else if (error) {
                 const details = error?.details[0].message;
                 handelError(details);
@@ -390,7 +394,12 @@ function Home() {
 
             {/* About Section */}
             <section class="about">
-                <h2 onClick={getAboutUs}>About Us</h2>
+                <div className='line'>
+                    <div className="box"><h3>Total User: {userCount}</h3></div>
+                    <h2 onClick={getAboutUs} className='helper'>About Us</h2>
+                    <div className="box"><h3>Total  Story: {storyCount}</h3></div>
+                </div>
+
                 <p>Welcome to MapMyStory, a platform where the world comes together to share experiences, explore cultures, and connect through the power of storytelling.</p>
                 <p>How it works: Pin a Location, Share Your Story, Connect with Others.</p>
             </section>

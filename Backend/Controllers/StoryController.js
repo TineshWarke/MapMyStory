@@ -27,13 +27,15 @@ const getStories = async (req, res) => {
     try {
         const stories = await StoryModel.find().sort({ _id: -1 }).skip((req.body.pageno - 1) * 16).limit(16);
         const allStories = await StoryModel.find();
+        toatl = UserModel.count_documents({});
 
         return res.status(200)
             .json({
                 message: 'Success',
                 success: true,
                 stories: stories,
-                allStories: allStories
+                allStories: allStories,
+                count: total
             });
     } catch (err) {
         return res.status(500)

@@ -435,6 +435,33 @@ header span p{
     padding: 0.75rem;
     background: #f8f8f8;
     text-align: center;
+    justify-content: center;
+}
+
+.about .line {
+    display: flex;
+    align-items: center;
+    gap: 28.6rem;
+}
+
+.about .box{
+    border: 3px solid black;
+    width: 200px;
+    height: 40px;
+    margin: 0 20px;
+    padding: 4px;
+    border-radius: 20px;
+    transform: scale(1);
+    cursor: pointer;
+    background-color: white;
+}
+
+.about .box:hover {
+    transform: scale(1.1);
+}
+
+.about .box:active {
+    transform: scale(0.9);
 }
 
 .about h2 {

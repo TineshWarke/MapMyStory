@@ -258,7 +258,7 @@ function Profile() {
             const { success, message, rate, error } = result;
             if (success) {
                 console.log(message);
-                setTotal(rate)
+                setTotal(rate != null ? rate : 0);
             } else if (error) {
                 const details = error?.details[0].message;
                 handelError(details);

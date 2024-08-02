@@ -292,7 +292,7 @@ function Profile() {
                     </ul>
                 </nav>
                 {/* <input type="text" placeholder="Search..." /> */}
-                <span> <p>{total}</p>
+                <span> <p>{Math.round(total * 10) / 10}</p>
                     <StarRating onRatingChange={submitRating} className='rateing' />
                 </span>
             </header>

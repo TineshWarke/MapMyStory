@@ -125,6 +125,9 @@ function Home() {
 
     const addComment = async () => {
         try {
+            if (!comment.data) {
+                return handelError('Type something.......');
+            }
             const url = "https://map-my-story-server.vercel.app/story/addcomment";
             const response = await fetch(url, {
                 method: 'POST',

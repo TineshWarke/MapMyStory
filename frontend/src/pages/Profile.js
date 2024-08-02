@@ -162,7 +162,7 @@ function Profile() {
                 },
                 body: JSON.stringify({
                     id: story._id,
-                    username: story.username
+                    username: user.username
                 })
             });
 
@@ -354,7 +354,7 @@ function Profile() {
                             </div>
                             <div className='like' onClick={updateLike}>
                                 <span className='number'>❤️</span>
-                                <span id="like-count">{story.likes}</span>
+                                <span id="like-count">{story.likeby.length}</span>
                             </div>
                             <div className='comments'>
                                 <span className='number' onClick={() => { setComm(!comm) }}><img src={chats} /></span>

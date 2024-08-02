@@ -75,12 +75,12 @@ function Home() {
                 body: JSON.stringify(copyPage)
             });
             const result = await response.json();
-            const { success, message, stories, allStories, count, error } = result;
+            const { success, message, stories, allStories, error } = result;
             setStories(stories);
             setAllStories(allStories);
             if (success) {
                 console.log(message);
-                setStoryCount(count);
+                setStoryCount(allStories.length);
             } else if (error) {
                 const details = error?.details[0].message;
                 handelError(details);

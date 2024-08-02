@@ -27,7 +27,6 @@ const getStories = async (req, res) => {
     try {
         const stories = await StoryModel.find().sort({ _id: -1 }).skip((req.body.pageno - 1) * 16).limit(16);
         const allStories = await StoryModel.find();
-        const total = StoryModel.find().count();
 
         return res.status(200)
             .json({
@@ -35,7 +34,6 @@ const getStories = async (req, res) => {
                 success: true,
                 stories: stories,
                 allStories: allStories,
-                count: total
             });
     } catch (err) {
         return res.status(500)

@@ -159,6 +159,7 @@ header span p{
     overflow: hidden;
     cursor: pointer;
     text-align: justify;
+    margin-left: 20px;
 }
 
 .story-card:hover {

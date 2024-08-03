@@ -217,10 +217,10 @@ function SubmitStory() {
             <section class="submit-story">
                 <h1>Share Your Story</h1>
                 <form id="story-form" onSubmit={handleAddStory}>
-                    <label for="title">Story Title:</label>
+                    <label for="title">Story Title<span style={{color:'red'}}>*</span>:</label>
                     <input type="text" id="title" name="title" value={storyInfo.title} onChange={handelChange} required />
 
-                    <label for="category">Category:</label>
+                    <label for="category">Category<span style={{color:'red'}}>*</span>:</label>
                     <select id="category" name="category" onChange={handelChange} required>
                         <option></option>
                         <option value="Dream">Dream</option>
@@ -234,7 +234,7 @@ function SubmitStory() {
                         <option value="Other">Other</option>
                     </select>
 
-                    <label for="story">Your Story:</label>
+                    <label for="story">Your Story<span style={{color:'red'}}>*</span>:</label>
                     <textarea id="story" name="story" value={storyInfo.story} onChange={handelChange} rows="5" required></textarea>
 
                     <div onClick={getLocation} className="getlocation">Get My Location</div>

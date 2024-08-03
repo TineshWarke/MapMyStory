@@ -348,7 +348,7 @@ function Profile() {
                             <div id='title'>
                                 <h1>{story.title}</h1>
                             </div>
-                            <div id='description'>
+                            <div id='description' style={{ whiteSpace: 'pre-line' }}>
                                 <p>{story.story}</p>
                                 {
                                     story.anonymous ? <h4 className='author'> - Anonymous</h4> :
